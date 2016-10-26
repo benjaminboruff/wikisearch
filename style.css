@@ -1,0 +1,19 @@
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.mdl-card {
+    margin-bottom : 8px;
+}
+
+#links {
+  margin: 0 auto;
+}
+
+body {
+    background-color: black;
+}

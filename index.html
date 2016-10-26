@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>FCC Wiki Search</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.red-indigo.min.css">
+        <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+        <script
+          src="https://code.jquery.com/jquery-3.1.1.min.js"
+          integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+          crossorigin="anonymous">
+        </script>
+        <script type="text/javascript" src="https://unpkg.com/vue@2.0.3/dist/vue.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div id="app" class="mdl-layout mdl-js-layout">
+            <main class="mdl-layout__content">
+                <div class="mdl-grid">
+                    <div class="mdl-layout-spacer"></div>
+                    <div class="mdl-cell mdl-cell--4-col">
+                        <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+                                Random
+                            </button>
+                        </a>
+                        <input v-model="search" placeholder="Search Wikipedia" type="search"/>
+                        <button @click="searchWiki" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" >
+                            Search
+                        </button>
+                    </div>
+                    <div class="mdl-layout-spacer"></div>
+                </div>
+                <!-- Output data to page -->
+                <div id="links" class="mdl-grid">
+                     <div class="mdl-layout-spacer"></div>
+                    <ul class="mdl-cell mdl-cell--4-col" >
+                        <li class="mdl-card mdl-shadow--4dp" v-for="item in data">
+                            <div class="mdl-card__title">
+                              <a :href="item.url" target="_blank">
+                                  <p class="mdl-card__title-text">{{item.title}}</p>
+                              </a>
+                            </div>
+                            <div class="mdl-card__supporting-text mdl-card--border">
+                                {{item.extract}}
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="mdl-layout-spacer"></div>
+                </div>    
+            </main>
+        </div>
+        <script type="text/javascript" src="app.js"></script>
+    </body>
+</html>
